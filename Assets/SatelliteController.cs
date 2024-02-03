@@ -7,17 +7,18 @@ public class SatelliteController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SayHello("Kody");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey("a"))
+        {
+            Debug.Log("Down arrow");
+        }
+        // Debug.Log("something");
     }
 
-    void SayHello(string name)
-    {
-        Debug.Log(name);
-    }
+
 }
