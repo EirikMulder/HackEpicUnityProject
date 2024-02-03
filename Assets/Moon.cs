@@ -14,6 +14,10 @@ public class Moon : MonoBehaviour
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        float velocityMagnitude = Mathf.Sqrt(G * massJupiter * systemScale / transform.position.magnitude);
+        Vector3 initialVelocity = Vector3.Cross(transform.position, Vector3.up);
+        initialVelocity = initialVelocity.normalized * velocityMagnitude;
+        rigidBody.velocity = initialVelocity;
         // Vector3
         // Rigidbody rigidBody = GetComponent<Rigidbody>();
         // rigidBody.angularVelocity = new Vector3(0, 20, 0);
@@ -21,15 +25,16 @@ public class Moon : MonoBehaviour
 
     private void Update()
     {
+        // Debug.Log(Input.GetKey("down"));
+    }
 
-        Vector3 newRotation = transform.rotation.eulerAngles + new Vector3(0, 10 / 360f * 2*3.1415f, 0);
+    private void FixedUpdate()
+    {
 
-        // transform.SetPositionAndRotation(Vector3.zero, Quaternion.Euler(newRotation));
+        Vector3 unitR = transform.position.normalized;
+        float rMag = transform.position.magnitude;
 
-        Vector3 unitR = transform.position.normalized / systemScale;
-        float rMag = transform.position.magnitude / systemScale;
-
-        Vector3 force = G * rigidBody.mass * massJupiter / (rMag * rMag) * unitR;
+        Vector3 force = G * rigidBody.mass * massJupiter * systemScale / (rMag * rMag) * -unitR;
 
 
         rigidBody.AddForce(force);
