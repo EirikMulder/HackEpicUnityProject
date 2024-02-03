@@ -5,7 +5,7 @@ using UnityEngine;
 public class SatelliteController : MonoBehaviour
 
 {
-    // public static int i = 0;
+    private float pitch_rate = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,13 +15,11 @@ public class SatelliteController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Camera.main.transform.Rotate(new Vector3 (-2,0,0));
-            // i ++;
-            // Debug.Log("Down arrow" + i);
+            pitch_rate -= 0.5f;            
         }
-        // Debug.Log("something");
+        Camera.main.transform.Rotate(new Vector3(pitch_rate, 0, 0));
     }
 
 
