@@ -6,7 +6,6 @@ using UnityEngine.Serialization;
 public class Moon : MonoBehaviour
 {
     public Vector3 initialPosition;
-    public Vector3 initialVelocity;
     public Rigidbody rigidBody;
     public static float G = 6.67408e-11f;
     public static float massJupiter = 1.89813e27f;
@@ -15,6 +14,7 @@ public class Moon : MonoBehaviour
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
+        // Vector3
         // Rigidbody rigidBody = GetComponent<Rigidbody>();
         // rigidBody.angularVelocity = new Vector3(0, 20, 0);
     }
