@@ -30,11 +30,11 @@ public class SatelliteController : MonoBehaviour
 
         if (Input.GetKey("d"))
         {
-            yaw_rate -= rot_step;
+            yaw_rate += rot_step;
         }
         if (Input.GetKey("a"))
         {
-            yaw_rate += rot_step;
+            yaw_rate -= rot_step;
         }
 
         if (Input.GetKey("e"))
@@ -46,7 +46,7 @@ public class SatelliteController : MonoBehaviour
             roll_rate -= rot_step;
         }
 
-        transform.Rotate(new Vector3(pitch_rate, yaw_rate, roll_rate));
+        transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate));
 
         if (pitch_rate != 0)
         {
