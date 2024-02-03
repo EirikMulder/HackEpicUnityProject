@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 1459059113}
   - component: {fileID: 1459059112}
   - component: {fileID: 1459059111}
-  - component: {fileID: 1459059115}
+  - component: {fileID: 1838858956}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -580,7 +580,6 @@ GameObject:
   - component: {fileID: 1838858959}
   - component: {fileID: 1838858958}
   - component: {fileID: 1838858957}
-  - component: {fileID: 1838858956}
   - component: {fileID: 1838858961}
   m_Layer: 0
   m_Name: Europa
@@ -601,15 +600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20734edd9494c4438ff560105f7bc74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GameObject: {fileID: 1838858955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0fc08d34234a487d8b4966873a309a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initial_position: {x: 0, y: 0, z: 0}
-  initial_velocity: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
 --- !u!135 &1838858957
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -719,7 +709,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -732,4 +722,4 @@ SceneRoots:
   - {fileID: 1459059114}
   - {fileID: 1838858960}
   - {fileID: 813959642}
-  - {fileID: 1838858960}
+  - {fileID: 422622044}
