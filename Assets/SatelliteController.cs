@@ -7,8 +7,9 @@ public class SatelliteController : MonoBehaviour
 {
     private float pitch_rate = 0f;
     private float yaw_rate = 0f;
+    private float roll_rate = 0f;
     private float rot_step = 0.002f;
-    private float mom_leak = -0.0001f;
+    private float mom_leak = -0.00002f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,31 +19,46 @@ public class SatelliteController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey("s"))
         {
             pitch_rate -= rot_step;            
         }
-        
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey("w"))
         {
             pitch_rate += rot_step;
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey("d"))
         {
             yaw_rate -= rot_step;
         }
-
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey("a"))
         {
             yaw_rate += rot_step;
         }
 
-        Camera.main.transform.Rotate(new Vector3(pitch_rate, yaw_rate, 0));
+        if (Input.GetKey("e"))
+        {
+            roll_rate += rot_step;
+        }
+        if (Input.GetKey("q"))
+        {
+            roll_rate -= rot_step;
+        }
+
+        Camera.main.transform.Rotate(new Vector3(pitch_rate, yaw_rate, roll_rate));
 
         if (pitch_rate != 0)
         {
             pitch_rate = (Mathf.Abs(pitch_rate) + mom_leak) * (Mathf.Abs(pitch_rate) / pitch_rate);
+        }
+        if (yaw_rate != 0)
+        {
+            yaw_rate = (Mathf.Abs(yaw_rate) + mom_leak) * (Mathf.Abs(yaw_rate) / yaw_rate);
+        }
+        if (roll_rate != 0)
+        {
+            roll_rate = (Mathf.Abs(roll_rate) + mom_leak) * (Mathf.Abs(roll_rate) / roll_rate);
         }
     }
 
