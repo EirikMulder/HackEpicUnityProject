@@ -38,7 +38,7 @@ public class SatelliteController : MonoBehaviour
             yaw_rate += rot_step;
         }
 
-        Camera.main.transform.Rotate(new Vector3(pitch_rate, yaw_rate, 0));
+        transform.Rotate(new Vector3(pitch_rate, yaw_rate, 0));
 
         if (pitch_rate != 0)
         {

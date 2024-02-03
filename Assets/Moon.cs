@@ -7,14 +7,11 @@ public class Moon : MonoBehaviour
 {
     public Vector3 initialPosition;
     public Rigidbody rigidBody;
-    public static float G = 6.67408e-11f;
-    public static float massJupiter = 1.89813e27f;
-    public float systemScale;
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
-        float velocityMagnitude = Mathf.Sqrt(G * massJupiter * systemScale / transform.position.magnitude);
+        float velocityMagnitude = Mathf.Sqrt(SceneController.Instance.G * SceneController.Instance.massJupiter * SceneController.Instance.systemScale / transform.position.magnitude);
         Vector3 initialVelocity = Vector3.Cross(transform.position, Vector3.up);
         initialVelocity = initialVelocity.normalized * velocityMagnitude;
         rigidBody.velocity = initialVelocity;
@@ -34,8 +31,7 @@ public class Moon : MonoBehaviour
         Vector3 unitR = transform.position.normalized;
         float rMag = transform.position.magnitude;
 
-        Vector3 force = G * rigidBody.mass * massJupiter * systemScale / (rMag * rMag) * -unitR;
-
+        Vector3 force = SceneController.Instance.G * rigidBody.mass * SceneController.Instance.massJupiter * SceneController.Instance.systemScale / (rMag * rMag) * -unitR;
 
         rigidBody.AddForce(force);
     }
