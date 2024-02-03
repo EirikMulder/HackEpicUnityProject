@@ -555,11 +555,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1955988227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1023213327 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 963139a68bd4d2a47ab134379fa31df7, type: 3}
-  m_PrefabInstance: {fileID: 1955988226}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1459059110
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +777,7 @@ GameObject:
   - component: {fileID: 1838858958}
   - component: {fileID: 1838858957}
   - component: {fileID: 1838858961}
+  - component: {fileID: 1838858962}
   m_Layer: 0
   m_Name: Europa
   m_TagString: Untagged
@@ -910,10 +906,25 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1838858962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838858955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fc08d34234a487d8b4966873a309a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialPosition: {x: 5, y: 0, z: 0}
+  rigidBody: {fileID: 0}
+  systemScale: 1e-15
 --- !u!1001 &1955988226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -975,20 +986,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 963139a68bd4d2a47ab134379fa31df7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1955988228}
+      addedObject: {fileID: 528671287}
   m_SourcePrefab: {fileID: 100100000, guid: 963139a68bd4d2a47ab134379fa31df7, type: 3}
 --- !u!4 &1955988227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 963139a68bd4d2a47ab134379fa31df7, type: 3}
   m_PrefabInstance: {fileID: 1955988226}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1955988228
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 963139a68bd4d2a47ab134379fa31df7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 528671287}
-  m_SourcePrefab: {fileID: 100100000, guid: 963139a68bd4d2a47ab134379fa31df7, type: 3}
 --- !u!1 &1977931821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +1004,6 @@ GameObject:
   - component: {fileID: 1977931822}
   - component: {fileID: 1977931825}
   - component: {fileID: 1977931824}
-  - component: {fileID: 1977931823}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1028,56 +1031,6 @@ RectTransform:
   m_AnchoredPosition: {x: -392, y: 254}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1977931823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1023213327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3916fa9f1c2a4f98b9488c392a71a97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_GameObject: {fileID: 1977931821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1977931824}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1977931824
 MonoBehaviour:
   m_ObjectHideFlags: 0
