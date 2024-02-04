@@ -39,7 +39,7 @@ public class Moon : MonoBehaviour
         Vector3 unitR = transform.position.normalized;
         float rMag = transform.position.magnitude / systemScale;
 
-        Vector3 force = SceneController.Instance.G * rigidBody.mass * SceneController.Instance.massJupiter / (rMag * rMag) * -unitR;
+        Vector3 force = SceneController.Instance.timeScale * SceneController.Instance.G * rigidBody.mass * SceneController.Instance.massJupiter / (rMag * rMag) * -unitR;
         force *= systemScale;
 
         rigidBody.AddForce(force);
