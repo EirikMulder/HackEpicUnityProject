@@ -8,7 +8,7 @@ public class Moon : MonoBehaviour
     public Vector3 initialPosition;
     public Rigidbody rigidBody;
 
-    void Awake()
+    void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         float velocityMagnitude = Mathf.Sqrt(SceneController.Instance.G * SceneController.Instance.massJupiter * SceneController.Instance.systemScale / transform.position.magnitude);
