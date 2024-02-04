@@ -3846,7 +3846,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.0163, y: -0.09150028, z: -0.033899993}
   m_RotationOffsets:
-  - {x: -90, y: 0, z: 0}
+  - {x: -89.980225, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -9875,7 +9875,10 @@ MonoBehaviour:
   systemScale: 0.0000000357598
   timeScale: 8000000
   attractors:
+  - {fileID: 699546228}
   - {fileID: 1838858962}
+  - {fileID: 601006786}
+  - {fileID: 1980678322}
 --- !u!4 &2064442221
 Transform:
   m_ObjectHideFlags: 0
