@@ -10,8 +10,13 @@ public class Moon : MonoBehaviour
 
     void Start()
     {
+        var G = SceneController.Instance.G;
+        var massJupiter = SceneController.Instance.massJupiter;
+        var systemScale = SceneController.Instance.systemScale;
+
         rigidBody = GetComponent<Rigidbody>();
-        float velocityMagnitude = Mathf.Sqrt(SceneController.Instance.G * SceneController.Instance.massJupiter * SceneController.Instance.systemScale / transform.position.magnitude);
+        float velocityMagnitude = Mathf.Sqrt(SceneController.Instance.G * SceneController.Instance.massJupiter / transform.position.magnitude / SceneController.Instance.systemScale);
+        velocityMagnitude *= systemScale * systemScale;
         Vector3 initialVelocity = Vector3.Cross(transform.position, Vector3.up);
         initialVelocity = initialVelocity.normalized * velocityMagnitude;
         rigidBody.velocity = initialVelocity;
@@ -27,11 +32,15 @@ public class Moon : MonoBehaviour
 
     private void FixedUpdate()
     {
+        var G = SceneController.Instance.G;
+        var massJupiter = SceneController.Instance.massJupiter;
+        var systemScale = SceneController.Instance.systemScale;
 
         Vector3 unitR = transform.position.normalized;
-        float rMag = transform.position.magnitude;
+        float rMag = transform.position.magnitude / systemScale;
 
-        Vector3 force = SceneController.Instance.G * rigidBody.mass * SceneController.Instance.massJupiter * SceneController.Instance.systemScale / (rMag * rMag) * -unitR;
+        Vector3 force = SceneController.Instance.G * rigidBody.mass * SceneController.Instance.massJupiter / (rMag * rMag) * -unitR;
+        force *= systemScale;
 
         rigidBody.AddForce(force);
     }

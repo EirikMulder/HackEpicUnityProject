@@ -7,8 +7,13 @@ public class SceneController : MonoBehaviour
 {
 
     public float G = 6.67408e-11f;
-    public float massJupiter = 1.89813e27f;
+    public float massJupiter
+    {
+        get => _massJupiter * timeScale;
+    }
+    private float _massJupiter = 1.89813e27f;
     public float systemScale = 1e-15f;
+    public float timeScale;
 
     public List<Moon> attractors = new();
 
