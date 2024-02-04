@@ -14,8 +14,13 @@ public class SatelliteController : MonoBehaviour
 
     public float prop_rem;
     private float prop_burn = -.75f;
+    public float batt_charge;
+    private float batt_decay = -1;
 
     private Rigidbody rb;
+
+    private bool prop_out = false;
+    private bool batt_out = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +30,7 @@ public class SatelliteController : MonoBehaviour
         roll_rate = 0f;
 
         prop_rem = 100f;
+        batt_charge = 100f;
 
         rb = GetComponent<Rigidbody>();
     }
@@ -32,69 +38,92 @@ public class SatelliteController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (prop_rem > 0)
+        if (prop_rem > 0 && batt_charge > 0)
         {
             if (Input.GetKey("s"))
             {
                 pitch_rate += rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
+                batt_charge += 2 * batt_decay * Time.deltaTime;
             }
             if (Input.GetKey("w"))
             {
                 pitch_rate -= rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
+                batt_charge += 2 * batt_decay * Time.deltaTime;
             }
 
             if (Input.GetKey("d"))
             {
                 yaw_rate -= rot_step;
-                prop_rem += prop_burn * Time.deltaTime; ;
+                prop_rem += prop_burn * Time.deltaTime;
+                batt_charge += 2 * batt_decay * Time.deltaTime;
             }
             if (Input.GetKey("a"))
             {
                 yaw_rate += rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
+                batt_charge += 2 * batt_decay * Time.deltaTime;
             }
 
             if (Input.GetKey("e"))
             {
                 roll_rate -= rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
+                batt_charge += 2 * batt_decay * Time.deltaTime;
             }
             if (Input.GetKey("q"))
             {
                 roll_rate += rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
+                batt_charge += 2 * batt_decay * Time.deltaTime;
             }
 
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                Debug.Log("Forward Thrust");
                 prop_rem += 4 * prop_burn * Time.deltaTime;
+                batt_charge += 8 * batt_decay * Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                Debug.Log("Backward Thrust");
                 prop_rem += 4 * prop_burn * Time.deltaTime;
+                batt_charge += 8 * batt_decay * Time.deltaTime;
             }
+
+            batt_charge += batt_decay * Time.deltaTime;
         }
 
         transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate)*Time.deltaTime);
 
-        if (prop_rem < 0) {prop_rem = 0;}
+        if (prop_rem < 0)
+        {
+            prop_rem = 100;
+            prop_out = true;
+        }
+        if (batt_charge < 0)
+        {
+            batt_charge = 100;
+            batt_out = true;
+        }
 
         if (pitch_rate != 0)
         {
             pitch_rate = (Mathf.Abs(pitch_rate) + mom_leak) * (Mathf.Abs(pitch_rate) / pitch_rate);
+            batt_charge += batt_decay * Time.deltaTime;
         }
         if (yaw_rate != 0)
         {
             yaw_rate = (Mathf.Abs(yaw_rate) + mom_leak) * (Mathf.Abs(yaw_rate) / yaw_rate);
+            batt_charge += batt_decay * Time.deltaTime;
         }
         if (roll_rate != 0)
         {
             roll_rate = (Mathf.Abs(roll_rate) + mom_leak) * (Mathf.Abs(roll_rate) / roll_rate);
+            batt_charge += batt_decay * Time.deltaTime;
         }
+
+        if (prop_out) { Debug.Log("Propellent Out!"); }
+        if (batt_out) { Debug.Log("Battery Dead!"); }
     }
 
     private void FixedUpdate()
