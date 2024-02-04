@@ -2678,7 +2678,7 @@ ParentConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -0.0163, y: 0.028694265, z: -5.0932636}
-  m_RotationAtRest: {x: -3.2277894, y: 0, z: 0}
+  m_RotationAtRest: {x: -3.2277892, y: 0, z: 0}
   m_TranslationOffsets:
   - {x: -0.0163, y: -0.09150028, z: -0.033899993}
   m_RotationOffsets:
@@ -3386,7 +3386,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.0083, y: 0.041600227, z: 0.0055000186}
   m_RotationOffsets:
-  - {x: -90, y: 0, z: 0}
+  - {x: -89.96574, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -5056,7 +5056,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.0083, y: 0.041600227, z: 0.0055000186}
   m_RotationOffsets:
-  - {x: -90, y: 0, z: 0}
+  - {x: -89.96574, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -7771,7 +7771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trajectoryLookahead: {fileID: 1955988234}
-  timestep: 0.1
+  timestep: 0.05
   lookaheadTime: 50
 --- !u!54 &1955988229
 Rigidbody:
