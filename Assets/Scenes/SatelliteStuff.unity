@@ -853,6 +853,7 @@ MonoBehaviour:
   yaw_rate: 0
   roll_rate: 0
   prop_rem: 100
+  batt_charge: 0
 --- !u!54 &615494005
 Rigidbody:
   m_ObjectHideFlags: 0

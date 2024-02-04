@@ -29,12 +29,13 @@ public class SceneController : MonoBehaviour
         Vector3 accel = Vector3.zero;
         foreach (var attractor in attractors)
         {
-            Vector3 positionOffset = attractor.transform.position - position;
+            Vector3 positionOffset = position - attractor.transform.position;
             Vector3 unitR = positionOffset.normalized;
             float rMagnitude = positionOffset.magnitude;
 
-            accel += G * attractor.mass * systemScale / (rMagnitude * rMagnitude) * unitR;
+            accel += G * attractor.mass * systemScale / (rMagnitude * rMagnitude) * -unitR;
         }
+        Instance = this;
 
         return accel;
     }
