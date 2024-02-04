@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using System;
+using System.Linq;
 
 public class satOrbital : MonoBehaviour
 {
@@ -60,12 +60,12 @@ public class satOrbital : MonoBehaviour
         if (!integrating)
         {
             // Task.Run(() => IntegrateToMainThread(transform.position, rigidBody.position));
-            Debug.Log($"Task.Run!");
+            // Debug.Log($"Task.Run!");
             IntegrateToMainThread(transform.position, rigidBody.velocity, SceneController.Instance.attractorTuples);
         }
         else
         {
-            Debug.Log($"integrating!");
+            // Debug.Log($"integrating!");
         }
 
         // Debug.Log($"Jupiter: {force.magnitude}");
@@ -75,10 +75,10 @@ public class satOrbital : MonoBehaviour
     async void IntegrateToMainThread(Vector3 startPos, Vector3 startVel, List<Tuple<Vector3, float>> attractorTuples)
     {
         integrating = true;
-        Debug.Log($"Began Integrating!");
+        // Debug.Log($"Began Integrating!");
         // var lookaheadPositions = Integrate(startPos, startVel, timestep, lookaheadTime);
         await Task.Run(() => Integrate(startPos, startVel, timestep, lookaheadTime, attractorTuples));
-        Debug.Log($"Finished Integrating");
+        // Debug.Log($"Finished Integrating");
         integrating = false;
     }
 
@@ -102,6 +102,9 @@ public class satOrbital : MonoBehaviour
 
             stateVector = stateVector + (1 / 6f) * (k1 + 2 * k2 + 2 * k3 + k4);
             positions.Add(stateVector.GetPosition());
+
+            dt = positions.Last().magnitude / 5f * 0.01f;
+            dt = Mathf.Clamp(dt, 0.005f, 2f);
         }
 
         var lookaheadPositions = positions;
@@ -110,7 +113,7 @@ public class satOrbital : MonoBehaviour
             {
                 trajectoryLookahead.positionCount = lookaheadPositions.Count;
                 trajectoryLookahead.SetPositions(lookaheadPositions.ToArray());
-                Debug.Log($"Updated Positions");
+                // Debug.Log($"Updated Positions");
             }));
 
         // return positions;
