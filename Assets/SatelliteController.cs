@@ -2,6 +2,7 @@
 //using System.Collections;
 //using System.Collections.Generic;
 //using System.Numerics;
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -27,6 +28,8 @@ public class SatelliteController : MonoBehaviour
 
     private float point_acc;
 
+    public bool charge;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,8 @@ public class SatelliteController : MonoBehaviour
         batt_charge = 100f;
 
         rb = GetComponent<Rigidbody>();
+
+        charge = true;
     }
 
     // Update is called once per frame
@@ -137,7 +142,19 @@ public class SatelliteController : MonoBehaviour
         if (batt_out) { Debug.Log("Battery Dead!"); }
 
         point_acc = Vector3.Dot(transform.up,Vector3.forward);
-        if (point_acc > 0) { batt_charge -= 3 * point_acc * batt_decay * Time.deltaTime; }
+        if (point_acc > 0)
+        {
+            if (transform.position[2] > 0 && Mathf.Sqrt(Mathf.Pow(transform.position[0], 2) + Mathf.Pow(transform.position[1], 2)) < 2.5)
+            {
+                charge = false;
+            }
+            else
+            { 
+                batt_charge -= 3 * point_acc * batt_decay * Time.deltaTime;
+                charge = true;
+            }
+        }
+        else { charge = false; }
     }
 
     private void FixedUpdate()
