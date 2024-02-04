@@ -49,39 +49,39 @@ public class SatelliteController : MonoBehaviour
             {
                 pitch_rate += rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.5f * batt_decay * Time.deltaTime;
+                batt_charge += 0.75f * batt_decay * Time.deltaTime;
             }
             if (Input.GetKey("w"))
             {
                 pitch_rate -= rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.5f * batt_decay * Time.deltaTime;
+                batt_charge += 0.75f * batt_decay * Time.deltaTime;
             }
 
             if (Input.GetKey("d"))
             {
                 yaw_rate -= rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.5f * batt_decay * Time.deltaTime;
+                batt_charge += 0.75f * batt_decay * Time.deltaTime;
             }
             if (Input.GetKey("a"))
             {
                 yaw_rate += rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.5f * batt_decay * Time.deltaTime;
+                batt_charge += 0.75f * batt_decay * Time.deltaTime;
             }
 
             if (Input.GetKey("e"))
             {
                 roll_rate -= rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.5f * batt_decay * Time.deltaTime;
+                batt_charge += 0.75f * batt_decay * Time.deltaTime;
             }
             if (Input.GetKey("q"))
             {
                 roll_rate += rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.5f * batt_decay * Time.deltaTime;
+                batt_charge += 0.75f * batt_decay * Time.deltaTime;
             }
 
             if (Input.GetKey(KeyCode.UpArrow))
@@ -95,7 +95,7 @@ public class SatelliteController : MonoBehaviour
                 batt_charge += batt_decay * Time.deltaTime;
             }
 
-            batt_charge += 0.25f * batt_decay * Time.deltaTime;
+            batt_charge += 0.5f * batt_decay * Time.deltaTime;
         }
 
         transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate)*Time.deltaTime);
