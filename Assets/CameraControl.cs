@@ -17,7 +17,7 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Cross(satellite.velocity * range, satellite.position);
+        transform.position = satellite.position + Vector3.Cross(satellite.velocity * range, satellite.position);
         transform.forward = Vector3.Cross(satellite.position, satellite.velocity);
 
         range = range + (Input.GetAxis("Mouse ScrollWheel") * sensitivity);
