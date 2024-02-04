@@ -23,8 +23,8 @@ public class SatelliteController : MonoBehaviour
 
     private Rigidbody rb;
 
-    private bool prop_out = false;
-    private bool batt_out = false;
+    public bool prop_out = false;
+    public bool batt_out = false;
 
     private float point_acc;
 
@@ -128,12 +128,12 @@ public class SatelliteController : MonoBehaviour
             pitch_rate = (Mathf.Abs(pitch_rate) + mom_leak) * (Mathf.Abs(pitch_rate) / pitch_rate);
             batt_charge += 0.25f * batt_decay * Time.deltaTime;
         }
-        if (yaw_rate != 0)
+        if (yaw_rate != 0 && !batt_out)
         {
             yaw_rate = (Mathf.Abs(yaw_rate) + mom_leak) * (Mathf.Abs(yaw_rate) / yaw_rate);
             batt_charge += 0.25f * batt_decay * Time.deltaTime;
         }
-        if (roll_rate != 0)
+        if (roll_rate != 0 && !batt_out)
         {
             roll_rate = (Mathf.Abs(roll_rate) + mom_leak) * (Mathf.Abs(roll_rate) / roll_rate);
             batt_charge += 0.25f * batt_decay * Time.deltaTime;
