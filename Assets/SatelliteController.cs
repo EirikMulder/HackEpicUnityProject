@@ -110,12 +110,12 @@ public class SatelliteController : MonoBehaviour
 
         if (prop_rem < 0)
         {
-            prop_rem = 100;
+            prop_rem = 0;
             prop_out = true;
         }
         if (batt_charge < 0)
         {
-            batt_charge = 100;
+            batt_charge = 0;
             batt_out = true;
         }
         if (batt_charge > 100) { batt_charge = 100; }
