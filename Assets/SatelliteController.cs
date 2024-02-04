@@ -52,7 +52,7 @@ public class SatelliteController : MonoBehaviour
     {
         if (pausegame.pause) return;
 
-        if (prop_rem > 0 && batt_charge > 0)
+        if (!prop_out && !batt_out)
         {
             if (Input.GetKey("s"))
             {
@@ -103,12 +103,11 @@ public class SatelliteController : MonoBehaviour
                 prop_rem += 4 * prop_burn * Time.deltaTime;
                 batt_charge += batt_decay * Time.deltaTime;
             }
-
-            batt_charge += 0.5f * batt_decay * Time.deltaTime;
         }
 
-        transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate) * Time.deltaTime);
+        batt_charge += 0.5f * batt_decay * Time.deltaTime;
 
+        transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate) * Time.deltaTime);
 
         if (prop_rem < 0)
         {
