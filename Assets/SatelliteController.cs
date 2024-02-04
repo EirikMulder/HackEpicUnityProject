@@ -136,7 +136,7 @@ public class SatelliteController : MonoBehaviour
         if (batt_out) { Debug.Log("Battery Dead!"); }
 
         point_acc = Vector3.Dot(transform.up,Vector3.forward);
-        if (point_acc > 0) { batt_charge -= point_acc * batt_decay * Time.deltaTime; }
+        if (point_acc > 0) { batt_charge -= 3 * point_acc * batt_decay * Time.deltaTime; }
     }
 
     private void FixedUpdate()
