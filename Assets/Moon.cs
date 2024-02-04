@@ -13,9 +13,10 @@ public class Moon : MonoBehaviour
         var G = SceneController.Instance.G;
         var massJupiter = SceneController.Instance.massJupiter;
         var systemScale = SceneController.Instance.systemScale;
+        var timeScale = SceneController.Instance.timeScale;
 
         rigidBody = GetComponent<Rigidbody>();
-        float velocityMagnitude = Mathf.Sqrt(SceneController.Instance.G * SceneController.Instance.massJupiter / transform.position.magnitude / SceneController.Instance.systemScale);
+        float velocityMagnitude = Mathf.Sqrt(timeScale * G * massJupiter / transform.position.magnitude / systemScale);
         velocityMagnitude *= systemScale * systemScale;
         Vector3 initialVelocity = Vector3.Cross(transform.position, Vector3.up);
         initialVelocity = initialVelocity.normalized * velocityMagnitude;
