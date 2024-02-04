@@ -5,7 +5,6 @@ using UnityEngine.Serialization;
 
 public class Moon : MonoBehaviour
 {
-    public Vector3 initialPosition;
     public Rigidbody rigidBody;
 
     void Start()
