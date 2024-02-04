@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +8,16 @@ public class SceneController : MonoBehaviour
 {
 
     public float G = 6.67408e-11f;
-    public float massJupiter
-    {
-        get => _massJupiter * timeScale;
-    }
-    private float _massJupiter = 1.89813e27f;
+    // public float massJupiter
+    // {
+    //     get => _massJupiter * timeScale;
+    // }
+    public float massJupiter = 1.89813e27f;
     public float systemScale = 1e-15f;
     public float timeScale;
 
     public List<Moon> attractors = new();
+    public List<Tuple<Vector3, float>> attractorTuples => attractors.Select(i => new Tuple<Vector3, float>(i.transform.position, i.mass)).ToList();
 
     public static SceneController Instance;
 
@@ -29,19 +31,25 @@ public class SceneController : MonoBehaviour
         Instance = this;
     }
 
-    public Vector3 CalculateAcceleration(Vector3 position)
+    public Vector3 CalculateAcceleration(Vector3 position, List<Tuple<Vector3, float>> attractorTuples)
     {
         Vector3 accel = Vector3.zero;
-        foreach (var attractor in attractors)
+        foreach (var attractor in attractorTuples)
         {
-            Vector3 positionOffset = position - attractor.transform.position;
+            Vector3 positionOffset = position - attractor.Item1;
             Vector3 unitR = positionOffset.normalized;
             float rMagnitude = positionOffset.magnitude / systemScale;
 
-            accel += G * attractor.mass / (rMagnitude * rMagnitude) * -unitR;
+            accel += G * attractor.Item2 / (rMagnitude * rMagnitude) * -unitR;
         }
-        Instance = this;
 
-        return accel * systemScale * timeScale;
+        // Jupiter Makes you Stupider
+        Vector3 unitRJupiter = position.normalized;
+        float rMag = position.magnitude / systemScale;
+
+        Vector3 jupiterAccel = G * massJupiter / (rMag * rMag) * -unitRJupiter;
+        accel += jupiterAccel;
+
+        return accel * (systemScale * timeScale);
     }
 }
