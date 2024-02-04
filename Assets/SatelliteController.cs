@@ -99,6 +99,7 @@ public class SatelliteController : MonoBehaviour
         }
 
         transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate)*Time.deltaTime);
+        
 
         if (prop_rem < 0)
         {

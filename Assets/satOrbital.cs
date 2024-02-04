@@ -36,8 +36,6 @@ public class satOrbital : MonoBehaviour
         Vector3 force2 = SceneController.Instance.CalculateAcceleration(transform.position) * rigidBody.mass;
 
         rigidBody.AddForce(force);
-        Debug.Log($"Force = {force}");
         rigidBody.AddForce(force2);
-        Debug.Log($"Force 2 = {force2}");
     }
 }
