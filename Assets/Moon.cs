@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 public class Moon : MonoBehaviour
 {
     public Rigidbody rigidBody;
+    public float mass;
 
     void Start()
     {

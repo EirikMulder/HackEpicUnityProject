@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SceneController : MonoBehaviour
@@ -8,6 +9,8 @@ public class SceneController : MonoBehaviour
     public float G = 6.67408e-11f;
     public float massJupiter = 1.89813e27f;
     public float systemScale = 1e-15f;
+
+    public List<Moon> attractors = new();
 
     public static SceneController Instance;
 
@@ -19,5 +22,20 @@ public class SceneController : MonoBehaviour
             Destroy(Instance);
         }
         Instance = this;
+    }
+
+    public Vector3 CalculateAcceleration(Vector3 position)
+    {
+        Vector3 accel = Vector3.zero;
+        foreach (var attractor in attractors)
+        {
+            Vector3 positionOffset = attractor.transform.position - position;
+            Vector3 unitR = positionOffset.normalized;
+            float rMagnitude = positionOffset.magnitude;
+
+            accel += G * attractor.mass * systemScale / (rMagnitude * rMagnitude) * unitR;
+        }
+
+        return accel;
     }
 }
