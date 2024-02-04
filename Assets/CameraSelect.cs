@@ -11,6 +11,8 @@ public class CameraSelect : MonoBehaviour
     public TrailRenderer sat_trail;
 
     private int i = 0;
+    private int j = 0;
+    public float ts = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,5 +49,13 @@ public class CameraSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightShift)) { sat_trail.enabled = !sat_trail.enabled; }
         if (Input.GetKeyDown(KeyCode.RightControl)) { sat_trail.Clear(); }
+
+        if (j < 3 && Input.GetKeyDown(KeyCode.RightArrow)) { j++; }
+        if (j > 0 && Input.GetKeyDown(KeyCode.LeftArrow)) { j--; }
+        if (j == 0) { Time.timeScale = 1; }
+        if (j == 1) { Time.timeScale = 5; }
+        if (j == 2) { Time.timeScale = 20; }
+        if (j == 3) { Time.timeScale = 50; }
+        ts = Time.timeScale;
     }
 }
