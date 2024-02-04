@@ -611,6 +611,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3916fa9f1c2a4f98b9488c392a71a97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pitch_rate: 10
+  yaw_rate: 0
+  roll_rate: 0
+  prop_rem: 100
 --- !u!1 &618576465
 GameObject:
   m_ObjectHideFlags: 0
