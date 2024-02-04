@@ -49,39 +49,39 @@ public class SatelliteController : MonoBehaviour
             {
                 pitch_rate += rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.25f * batt_decay * Time.deltaTime;
+                batt_charge += 0.5f * batt_decay * Time.deltaTime;
             }
             if (Input.GetKey("w"))
             {
                 pitch_rate -= rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.25f * batt_decay * Time.deltaTime;
+                batt_charge += 0.5f * batt_decay * Time.deltaTime;
             }
 
             if (Input.GetKey("d"))
             {
                 yaw_rate -= rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.25f * batt_decay * Time.deltaTime;
+                batt_charge += 0.5f * batt_decay * Time.deltaTime;
             }
             if (Input.GetKey("a"))
             {
                 yaw_rate += rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.25f * batt_decay * Time.deltaTime;
+                batt_charge += 0.5f * batt_decay * Time.deltaTime;
             }
 
             if (Input.GetKey("e"))
             {
                 roll_rate -= rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.25f * batt_decay * Time.deltaTime;
+                batt_charge += 0.5f * batt_decay * Time.deltaTime;
             }
             if (Input.GetKey("q"))
             {
                 roll_rate += rot_step;
                 prop_rem += prop_burn * Time.deltaTime;
-                batt_charge += 0.25f * batt_decay * Time.deltaTime;
+                batt_charge += 0.5f * batt_decay * Time.deltaTime;
             }
 
             if (Input.GetKey(KeyCode.UpArrow))
@@ -95,7 +95,7 @@ public class SatelliteController : MonoBehaviour
                 batt_charge += batt_decay * Time.deltaTime;
             }
 
-            batt_charge += 0.125f * batt_decay * Time.deltaTime;
+            batt_charge += 0.25f * batt_decay * Time.deltaTime;
         }
 
         transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate)*Time.deltaTime);
@@ -115,24 +115,28 @@ public class SatelliteController : MonoBehaviour
         if (pitch_rate != 0)
         {
             pitch_rate = (Mathf.Abs(pitch_rate) + mom_leak) * (Mathf.Abs(pitch_rate) / pitch_rate);
-            batt_charge += batt_decay * Time.deltaTime;
+            batt_charge += 0.25f * batt_decay * Time.deltaTime;
         }
         if (yaw_rate != 0)
         {
             yaw_rate = (Mathf.Abs(yaw_rate) + mom_leak) * (Mathf.Abs(yaw_rate) / yaw_rate);
-            batt_charge += batt_decay * Time.deltaTime;
+            batt_charge += 0.25f * batt_decay * Time.deltaTime;
         }
         if (roll_rate != 0)
         {
             roll_rate = (Mathf.Abs(roll_rate) + mom_leak) * (Mathf.Abs(roll_rate) / roll_rate);
-            batt_charge += batt_decay * Time.deltaTime;
+            batt_charge += 0.25f * batt_decay * Time.deltaTime;
         }
+
+        if (Mathf.Abs(pitch_rate) < Mathf.Abs(mom_leak)) { pitch_rate = 0; }
+        if (Mathf.Abs(roll_rate) < Mathf.Abs(mom_leak)) { roll_rate = 0; }
+        if (Mathf.Abs(yaw_rate) < Mathf.Abs(mom_leak)) { yaw_rate = 0; }
 
         if (prop_out) { Debug.Log("Propellent Out!"); }
         if (batt_out) { Debug.Log("Battery Dead!"); }
 
         point_acc = Vector3.Dot(transform.up,Vector3.forward);
-        if (point_acc > 0) { batt_charge -= 0.25f * point_acc * batt_decay; }
+        if (point_acc > 0) { batt_charge -= point_acc * batt_decay * Time.deltaTime; }
     }
 
     private void FixedUpdate()
