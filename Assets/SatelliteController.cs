@@ -48,8 +48,6 @@ public class SatelliteController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pausegame.pause) return;
-
         if (prop_rem > 0 && batt_charge > 0)
         {
             if (Input.GetKey("s"))
@@ -105,8 +103,8 @@ public class SatelliteController : MonoBehaviour
             batt_charge += 0.5f * batt_decay * Time.deltaTime;
         }
 
-        transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate) * Time.deltaTime);
-
+        transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate)*Time.deltaTime);
+        
 
         if (prop_rem < 0)
         {
@@ -143,7 +141,7 @@ public class SatelliteController : MonoBehaviour
         if (prop_out) { Debug.Log("Propellent Out!"); }
         if (batt_out) { Debug.Log("Battery Dead!"); }
 
-        point_acc = Vector3.Dot(transform.up, Vector3.forward);
+        point_acc = Vector3.Dot(transform.up,Vector3.forward);
         if (point_acc > 0)
         {
             if (transform.position[2] > 0 && Mathf.Sqrt(Mathf.Pow(transform.position[0], 2) + Mathf.Pow(transform.position[1], 2)) < 2.5)
@@ -151,7 +149,7 @@ public class SatelliteController : MonoBehaviour
                 charge = false;
             }
             else
-            {
+            { 
                 batt_charge -= 3 * point_acc * batt_decay * Time.deltaTime;
                 charge = true;
             }
@@ -161,8 +159,6 @@ public class SatelliteController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (pausegame.pause) return;
-
         if (Input.GetKey(KeyCode.UpArrow))
         {
             rb.AddForce(0.15f * transform.up);
@@ -172,4 +168,6 @@ public class SatelliteController : MonoBehaviour
             rb.AddForce(-0.15f * transform.up);
         }
     }
+
+
 }

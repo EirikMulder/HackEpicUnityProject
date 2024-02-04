@@ -6,7 +6,7 @@ public class CameraControl : MonoBehaviour
 {
     public Rigidbody satellite;
 
-    private float sensitivity = 2.5f;
+    private float sensitivity = 3.5f;
     private float range = 5;
     // Start is called before the first frame update
     void Start()
