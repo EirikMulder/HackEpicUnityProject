@@ -35,9 +35,12 @@ public class satOrbital : MonoBehaviour
         Vector3 force = G * rigidBody.mass * massJupiter / (rMag * rMag) * -unitR;
         force *= systemScale;
 
-        // Vector3 force2 = SceneController.Instance.CalculateAcceleration(transform.position) * rigidBody.mass;
+        Vector3 force2 = SceneController.Instance.CalculateAcceleration(transform.position) * rigidBody.mass;
 
-        rigidBody.AddForce(force);
-        // rigidBody.AddForce(force2);
+        // rigidBody.AddForce(force);
+        rigidBody.AddForce(force2);
+
+        Debug.Log($"Jupiter: {force.magnitude}");
+        Debug.Log($"Europa: {force2.magnitude}");
     }
 }
