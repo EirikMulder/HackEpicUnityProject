@@ -1009,7 +1009,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.0150999995, y: 0.04879999, z: 0.013399988}
   m_RotationOffsets:
-  - {x: -90, y: 0, z: 0}
+  - {x: -89.96574, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -2247,7 +2247,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601006784}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3065,8 +3065,8 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691627173}
-  m_LocalRotation: {x: 0.0016793817, y: -0.7511719, z: 0.0019110753, w: 0.66010183}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.0016765846, y: -0.75194526, z: 0.0019124092, w: 0.6592207}
+  m_LocalPosition: {x: 0, y: 0, z: 1.641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3075,7 +3075,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2.23, y: 3.54}
-  m_SizeDelta: {x: 20, y: 5}
+  m_SizeDelta: {x: 23.308, y: 5.827}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691627175
 MonoBehaviour:
@@ -3277,7 +3277,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699546226}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3842,7 +3842,7 @@ ParentConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -0.0163, y: 0.028694265, z: -5.0932636}
-  m_RotationAtRest: {x: -3.2280056, y: 0, z: 0}
+  m_RotationAtRest: {x: -3.2280052, y: 0, z: 0}
   m_TranslationOffsets:
   - {x: -0.0163, y: -0.09150028, z: -0.033899993}
   m_RotationOffsets:
@@ -4550,7 +4550,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.0150999995, y: 0.04879999, z: 0.013399988}
   m_RotationOffsets:
-  - {x: -90, y: 0, z: 0}
+  - {x: -89.96574, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -6431,7 +6431,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.0150999995, y: 0.04879999, z: 0.013399988}
   m_RotationOffsets:
-  - {x: -90, y: 0, z: 0}
+  - {x: -89.96574, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -8097,7 +8097,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838858955}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9617,7 +9617,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980678320}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
