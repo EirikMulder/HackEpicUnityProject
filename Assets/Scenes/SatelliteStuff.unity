@@ -702,7 +702,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'E
 
-    (RCCW)'
+    (RCW)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1563,7 +1563,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'A
 
-    (YR)'
+    (YL)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2344,7 +2344,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Q
 
-    (RCW)'
+    (RCCW)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2480,7 +2480,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'D
 
-    (YL)'
+    (YR)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2959,7 +2959,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fc08d34234a487d8b4966873a309a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialPosition: {x: 5, y: 0, z: 0}
   rigidBody: {fileID: 0}
 --- !u!1001 &1955988226
 PrefabInstance:
