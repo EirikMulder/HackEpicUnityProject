@@ -3679,6 +3679,7 @@ MonoBehaviour:
   relativeScale: 0.2
   minScale: 0.5
   maxScale: 100
+  front_cam: {fileID: 963194227}
 --- !u!1 &1118358266
 GameObject:
   m_ObjectHideFlags: 0
