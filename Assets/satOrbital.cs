@@ -15,7 +15,8 @@ public class satOrbital : MonoBehaviour
         var systemScale = SceneController.Instance.systemScale;
 
         rigidBody = GetComponent<Rigidbody>();
-        float velocityMagnitude = Mathf.Sqrt(G * massJupiter * systemScale / transform.position.magnitude);
+        float velocityMagnitude = Mathf.Sqrt(G * massJupiter / transform.position.magnitude / systemScale);
+        velocityMagnitude *= systemScale * systemScale;
         Vector3 initialVelocity = Vector3.Cross(transform.position, Vector3.up);
         initialVelocity = initialVelocity.normalized * velocityMagnitude;
         rigidBody.velocity = initialVelocity;
@@ -29,13 +30,14 @@ public class satOrbital : MonoBehaviour
         var systemScale = SceneController.Instance.systemScale;
 
         Vector3 unitR = transform.position.normalized;
-        float rMag = transform.position.magnitude;
+        float rMag = transform.position.magnitude / systemScale;
 
-        Vector3 force = G * rigidBody.mass *massJupiter * systemScale / (rMag * rMag) * -unitR;
+        Vector3 force = G * rigidBody.mass * massJupiter / (rMag * rMag) * -unitR;
+        force *= systemScale;
 
-        Vector3 force2 = SceneController.Instance.CalculateAcceleration(transform.position) * rigidBody.mass;
+        // Vector3 force2 = SceneController.Instance.CalculateAcceleration(transform.position) * rigidBody.mass;
 
         rigidBody.AddForce(force);
-        rigidBody.AddForce(force2);
+        // rigidBody.AddForce(force2);
     }
 }
