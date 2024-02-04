@@ -1649,7 +1649,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 55600
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -2540,7 +2540,7 @@ GameObject:
   - component: {fileID: 1838858956}
   - component: {fileID: 615494005}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Jupiter (Sphere)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2628,7 +2628,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3006,9 +3006,9 @@ Transform:
   m_GameObject: {fileID: 1591522955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -150}
-  m_LocalScale: {x: 50, y: 50, z: 50}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: -27800}
+  m_LocalScale: {x: 500, y: 500, z: 500}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3913,8 +3913,8 @@ Transform:
   m_GameObject: {fileID: 1838858955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3446469, y: 3.93, z: -4.992}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 240, y: 0, z: 0}
+  m_LocalScale: {x: 0.0558, y: 0.0558, z: 0.0558}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -3968,7 +3968,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838858955}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4090,11 +4090,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 963139a68bd4d2a47ab134379fa31df7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.40763575
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 963139a68bd4d2a47ab134379fa31df7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.258514
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 963139a68bd4d2a47ab134379fa31df7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4237,7 +4237,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 10
+  m_Time: 604800
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -4350,8 +4350,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   G: 6.67408e-11
-  massJupiter: 1.89813e+27
-  systemScale: 1e-15
+  systemScale: 0.0000000357598
+  timeScale: 8000000
   attractors:
   - {fileID: 1838858962}
 --- !u!4 &2064442221
