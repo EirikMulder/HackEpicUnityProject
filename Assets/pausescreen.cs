@@ -12,6 +12,7 @@ public class pausescreen : MonoBehaviour
     void Start()
     {
         pause_image = GetComponent<TextMeshProUGUI>();
+
     }
 
     // Update is called once per frame
