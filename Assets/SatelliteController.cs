@@ -8,8 +8,8 @@ public class SatelliteController : MonoBehaviour
     private float pitch_rate = 0f;
     private float yaw_rate = 0f;
     private float roll_rate = 0f;
-    private float rot_step = 0.002f;
-    private float mom_leak = -0.00002f;
+    private float rot_step = 0.1f;
+    private float mom_leak = -0.001f;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +46,7 @@ public class SatelliteController : MonoBehaviour
             roll_rate -= rot_step;
         }
 
-        transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate));
+        transform.Rotate(new Vector3(pitch_rate, roll_rate, yaw_rate)*Time.deltaTime);
 
         if (pitch_rate != 0)
         {
