@@ -26,6 +26,7 @@ public class CameraSelect : MonoBehaviour
             front_camera.enabled = !front_camera.enabled;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) { sat_trail.enabled = !sat_trail.enabled; }
+        if (Input.GetKeyDown(KeyCode.RightShift)) { sat_trail.enabled = !sat_trail.enabled; }
+        if (Input.GetKeyDown(KeyCode.RightControl)) { sat_trail.Clear(); }
     }
 }
