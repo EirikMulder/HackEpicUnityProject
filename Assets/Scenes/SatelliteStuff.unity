@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: 450670618}
   - component: {fileID: 450670617}
   - component: {fileID: 450670616}
+  - component: {fileID: 450670619}
   m_Layer: 5
   m_Name: Battery
   m_TagString: Untagged
@@ -635,7 +636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 428.9, y: 221.2}
+  m_AnchoredPosition: {x: 428.9, y: 192.4}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450670616
@@ -681,8 +682,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 288629710}
   m_HandleRect: {fileID: 288629709}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.2
+  m_Value: 1
+  m_Size: 0.03
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -700,7 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.5629689, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -725,6 +726,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450670614}
   m_CullTransparentMesh: 1
+--- !u!114 &450670619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450670614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8780f0dc709714043bfb5c7bb617b415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  satellite: {fileID: 528671287}
 --- !u!1 &485248069
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,6 +894,7 @@ MonoBehaviour:
   yaw_rate: 0
   roll_rate: 0
   prop_rem: 100
+  batt_charge: 0
 --- !u!1 &618576465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,6 +2391,7 @@ GameObject:
   - component: {fileID: 1559451584}
   - component: {fileID: 1559451583}
   - component: {fileID: 1559451582}
+  - component: {fileID: 1559451585}
   m_Layer: 5
   m_Name: Fuel
   m_TagString: Untagged
@@ -2400,7 +2416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 428.9, y: 187.5}
+  m_AnchoredPosition: {x: 428.9, y: 223.4}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1559451582
@@ -2446,8 +2462,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1317688453}
   m_HandleRect: {fileID: 1317688452}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.2
+  m_Value: 1
+  m_Size: 0.03
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2465,7 +2481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.08983064, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2490,6 +2506,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559451580}
   m_CullTransparentMesh: 1
+--- !u!114 &1559451585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559451580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91408677876cc1240b68208eceb65b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  satellite: {fileID: 528671287}
 --- !u!1 &1582311996
 GameObject:
   m_ObjectHideFlags: 0
