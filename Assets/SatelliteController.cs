@@ -161,11 +161,11 @@ public class SatelliteController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            rb.AddForce(transform.up);
+            rb.AddForce(0.25f * transform.up);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            rb.AddForce(transform.up*-1);
+            rb.AddForce(-0.25f * transform.up);
         }
     }
 
