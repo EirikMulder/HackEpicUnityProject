@@ -303,10 +303,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1742350019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 378}
+  m_SizeDelta: {x: 0, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &46677218
 MonoBehaviour:
@@ -1009,7 +1009,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.0150999995, y: 0.04879999, z: 0.013399988}
   m_RotationOffsets:
-  - {x: -89.96574, y: 0, z: 0}
+  - {x: -90, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -3065,7 +3065,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691627173}
-  m_LocalRotation: {x: 0.0016765846, y: -0.75194526, z: 0.0019124092, w: 0.6592207}
+  m_LocalRotation: {x: 0.0016765847, y: -0.7519452, z: 0.0019124091, w: 0.65922076}
   m_LocalPosition: {x: 0, y: 0, z: 1.641}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3842,11 +3842,11 @@ ParentConstraint:
   serializedVersion: 2
   m_Weight: 1
   m_TranslationAtRest: {x: -0.0163, y: 0.028694265, z: -5.0932636}
-  m_RotationAtRest: {x: -3.2280052, y: 0, z: 0}
+  m_RotationAtRest: {x: -3.2280056, y: 0, z: 0}
   m_TranslationOffsets:
   - {x: -0.0163, y: -0.09150028, z: -0.033899993}
   m_RotationOffsets:
-  - {x: -90, y: 0, z: 0}
+  - {x: -89.980225, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -4550,7 +4550,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.0150999995, y: 0.04879999, z: 0.013399988}
   m_RotationOffsets:
-  - {x: -89.96574, y: 0, z: 0}
+  - {x: -90, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -6431,7 +6431,7 @@ ParentConstraint:
   m_TranslationOffsets:
   - {x: -0.0150999995, y: 0.04879999, z: 0.013399988}
   m_RotationOffsets:
-  - {x: -89.96574, y: 0, z: 0}
+  - {x: -90, y: 0, z: 0}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
@@ -9875,7 +9875,10 @@ MonoBehaviour:
   systemScale: 0.0000000357598
   timeScale: 8000000
   attractors:
+  - {fileID: 699546228}
   - {fileID: 1838858962}
+  - {fileID: 601006786}
+  - {fileID: 1980678322}
 --- !u!4 &2064442221
 Transform:
   m_ObjectHideFlags: 0
