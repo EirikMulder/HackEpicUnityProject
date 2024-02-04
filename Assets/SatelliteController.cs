@@ -115,14 +115,15 @@ public class SatelliteController : MonoBehaviour
             prop_rem = 0;
             prop_out = true;
         }
-        if (batt_charge < 0)
+        if (batt_charge <= 0)
         {
             batt_charge = 0;
             batt_out = true;
         }
+        else batt_out = false;
         if (batt_charge > 100) { batt_charge = 100; }
 
-        if (pitch_rate != 0)
+        if (pitch_rate != 0 && !batt_out)
         {
             pitch_rate = (Mathf.Abs(pitch_rate) + mom_leak) * (Mathf.Abs(pitch_rate) / pitch_rate);
             batt_charge += 0.25f * batt_decay * Time.deltaTime;
@@ -154,11 +155,8 @@ public class SatelliteController : MonoBehaviour
             }
             else
             {
-                dist_effect = 27800 / Mathf.Pow(Vector3.Magnitude(new Vector3(0, 0, -27800) - transform.position),2);
-                batt_charge -= 3 * point_acc * batt_decay * Time.deltaTime * dist_effect;
+                batt_charge -= 3 * point_acc * batt_decay * Time.deltaTime;
                 charge = true;
-                Debug.Log(transform.position);
-                Debug.Log(dist_effect);
             }
         }
         else { charge = false; }
@@ -167,6 +165,8 @@ public class SatelliteController : MonoBehaviour
     private void FixedUpdate()
     {
         if (pausegame.pause) return;
+
+        if (prop_out || batt_out) return;
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
