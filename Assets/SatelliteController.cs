@@ -30,6 +30,8 @@ public class SatelliteController : MonoBehaviour
 
     public bool charge;
 
+    private float dist_effect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -152,8 +154,11 @@ public class SatelliteController : MonoBehaviour
             }
             else
             {
-                batt_charge -= 3 * point_acc * batt_decay * Time.deltaTime;
+                dist_effect = 27800 / Mathf.Pow(Vector3.Magnitude(new Vector3(0, 0, -27800) - transform.position),2);
+                batt_charge -= 3 * point_acc * batt_decay * Time.deltaTime * dist_effect;
                 charge = true;
+                Debug.Log(transform.position);
+                Debug.Log(dist_effect);
             }
         }
         else { charge = false; }
