@@ -100,7 +100,7 @@ public class satOrbital : MonoBehaviour
             Vector3 acceleration4 = inst.CalculateAcceleration(stateVector.GetPosition() + (dt * k3.GetPosition()), attractorTuples);
             var k4 = new StateVector(stateVector, acceleration3, dt);
 
-            stateVector = stateVector + (1 / 6f) * (k1 + 2 * k2 + 2 * k3 + k4);
+            stateVector = stateVector + (1 / 6f) * (k1 + (2 * k2) + (2 * k3) + k4);
             positions.Add(stateVector.GetPosition());
 
             dt = positions.Last().magnitude / 5f * 0.01f;
